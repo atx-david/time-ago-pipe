@@ -6,17 +6,17 @@ A really simple, lightweight Angular pipe for converting a date string into a ti
 
 |Time Range|Output|
 |---|---|
-|0 - 45 seconds             | a few seconds ago      |
-|45 - 90 seconds            | a minute ago           |
-|90 seconds - 45 minutes    | X minutes ago          |
-|45 - 90 minutes            | an hour ago            |
-|90 minutes - 22 hours      | X hours ago            |
-|22 - 36 hours              | a day ago              |
-|36 hours - 25 days         | X days ago             |
-|25 - 45 days               | a month ago            |
-|45 - 345 days              | X months ago           |
-|345 - 545 days (1.5 years) | a year ago             |
-|546 days+                  | X years ago            |
+|0 - 45 seconds             | 1m      |
+|45 - 90 seconds            | 1m           |
+|90 seconds - 45 minutes    | Xm          |
+|45 - 90 minutes            | 1h            |
+|90 minutes - 22 hours      | Xh            |
+|22 - 36 hours              | 1d              |
+|36 hours - 25 days         | Xd             |
+|25 - 45 days               | 1M            |
+|45 - 345 days              | XM           |
+|345 - 545 days (1.5 years) | 1j             |
+|546 days+                  | Xj            |
 
 ## Installation
 ```npm install time-ago-pipe --save```
