@@ -28,27 +28,27 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
 		if (Number.isNaN(seconds)){
 			return '';
 		} else if (seconds <= 45) {
-			return 'a few seconds ago';
+			return '1m';
 		} else if (seconds <= 90) {
-			return 'a minute ago';
+			return '1m';
 		} else if (minutes <= 45) {
-			return minutes + ' minutes ago';
+			return minutes + 'm';
 		} else if (minutes <= 90) {
-			return 'an hour ago';
+			return '1h';
 		} else if (hours <= 22) {
-			return hours + ' hours ago';
+			return hours + 'h';
 		} else if (hours <= 36) {
-			return 'a day ago';
+			return '1d';
 		} else if (days <= 25) {
-			return days + ' days ago';
+			return days + 'd';
 		} else if (days <= 45) {
-			return 'a month ago';
+			return '1M';
 		} else if (days <= 345) {
-			return months + ' months ago';
+			return months + 'M';
 		} else if (days <= 545) {
-			return 'a year ago';
+			return '1j';
 		} else { // (days > 545)
-			return years + ' years ago';
+			return years + 'j';
 		}
 	}
 	ngOnDestroy(): void {
