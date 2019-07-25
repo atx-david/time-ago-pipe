@@ -33,7 +33,7 @@ describe('time-ago-pipe', () => {
 			for (let i =0; i < 45; i++){
 				clock.tick(oneSec);
 				if (i < 44) {
-					expect(pipe.transform(pastDate.toString())).to.equal('a few seconds ago');
+					expect(pipe.transform(pastDate.toString())).to.equal('1m');
 				}
 			}
 		});
@@ -43,9 +43,9 @@ describe('time-ago-pipe', () => {
 			for (let i =45; i < 89; i++){
 				clock.tick(oneSec);
 				if (i < 89){
-					expect(pipe.transform(pastDate.toString())).to.equal('a minute ago');
+					expect(pipe.transform(pastDate.toString())).to.equal('1m');
 				} else {
-					expect(pipe.transform(pastDate.toString())).not.to.equal('a minute ago');
+					expect(pipe.transform(pastDate.toString())).not.to.equal('1m');
 				}
 			}
 		});
@@ -55,9 +55,9 @@ describe('time-ago-pipe', () => {
 			for (let i =1; i < 44; i++){
 				clock.tick(oneMin);
 				if (i < 44){
-					expect(pipe.transform(pastDate.toString())).to.equal(i+1 + ' minutes ago');
+					expect(pipe.transform(pastDate.toString())).to.equal(i+1 + 'm');
 				} else {
-					expect(pipe.transform(pastDate.toString())).not.to.equal(i+1 + ' minutes ago');
+					expect(pipe.transform(pastDate.toString())).not.to.equal(i+1 + 'm');
 				}
 			}
 		});
@@ -68,9 +68,9 @@ describe('time-ago-pipe', () => {
 			for (let i =45; i < 120; i++){
 				clock.tick(oneMin);
 				if (i < 90){
-					expect(pipe.transform(pastDate.toString())).to.equal('an hour ago');
+					expect(pipe.transform(pastDate.toString())).to.equal('1h');
 				} else {
-					expect(pipe.transform(pastDate.toString())).not.to.equal('an hour ago');
+					expect(pipe.transform(pastDate.toString())).not.to.equal('1h');
 				}
 			}
 		});
@@ -81,9 +81,9 @@ describe('time-ago-pipe', () => {
 			for (let i = 1; i < 25; i++){
 				clock.tick(oneHour);
 				if (i < 22){
-					expect(pipe.transform(pastDate.toString())).to.equal(i+1 + ' hours ago');
+					expect(pipe.transform(pastDate.toString())).to.equal(i+1 + 'h');
 				} else {
-					expect(pipe.transform(pastDate.toString())).not.to.equal(i+1 + ' hours ago');
+					expect(pipe.transform(pastDate.toString())).not.to.equal(i+1 + 'h');
 				}
 			}
 		});
@@ -93,9 +93,9 @@ describe('time-ago-pipe', () => {
 			for (let i = 22; i < 40; i++){
 				clock.tick(oneHour);
 				if (i < 36){
-					expect(pipe.transform(pastDate.toString())).to.equal('a day ago');
+					expect(pipe.transform(pastDate.toString())).to.equal('1d');
 				} else {
-					expect(pipe.transform(pastDate.toString())).not.to.equal('a day ago');
+					expect(pipe.transform(pastDate.toString())).not.to.equal('1d');
 				}
 			}
 		});
@@ -105,9 +105,9 @@ describe('time-ago-pipe', () => {
 			for (let i = 1; i < 30; i++){
 				clock.tick(oneDay);
 				if (i < 25){
-					expect(pipe.transform(pastDate.toString())).to.equal(i+1 + ' days ago');
+					expect(pipe.transform(pastDate.toString())).to.equal(i+1 + 'd');
 				} else {
-					expect(pipe.transform(pastDate.toString())).not.to.equal(i+1 + ' days ago');
+					expect(pipe.transform(pastDate.toString())).not.to.equal(i+1 + 'd');
 				}
 			}
 		});
@@ -117,9 +117,9 @@ describe('time-ago-pipe', () => {
 			for (let i = 25; i < 50; i++){
 				clock.tick(oneDay);
 				if (i < 45){
-					expect(pipe.transform(pastDate.toString())).to.equal('a month ago');
+					expect(pipe.transform(pastDate.toString())).to.equal('1M');
 				} else {
-					expect(pipe.transform(pastDate.toString())).not.to.equal('a month ago');
+					expect(pipe.transform(pastDate.toString())).not.to.equal('1M');
 				}
 			}
 		});
@@ -129,9 +129,9 @@ describe('time-ago-pipe', () => {
 			for (let i = 1; i < 13; i++){
 				clock.tick(oneMonth);
 				if (i < 10){
-					expect(pipe.transform(pastDate.toString())).to.equal(i +1 + ' months ago');
+					expect(pipe.transform(pastDate.toString())).to.equal(i +1 + 'M');
 				} else {
-					expect(pipe.transform(pastDate.toString())).not.to.equal(i +1 + ' months ago');
+					expect(pipe.transform(pastDate.toString())).not.to.equal(i +1 + 'M');
 				}
 			}
 		});
@@ -141,20 +141,20 @@ describe('time-ago-pipe', () => {
 			for (let i = 345; i < 545; i++){
 				clock.tick(oneDay);
 				if (i < 545){
-					expect(pipe.transform(pastDate.toString())).to.equal('a year ago');
+					expect(pipe.transform(pastDate.toString())).to.equal('1j');
 				} else {
-					expect(pipe.transform(pastDate.toString())).not.to.equal('a year ago');
+					expect(pipe.transform(pastDate.toString())).not.to.equal('1j');
 				}
 			}
 		});
 		it('\'a year ago\' tests', () => {
 			var pastDate = new Date();
 			clock.tick(oneMonth * 22);
-			expect(pipe.transform(pastDate.toString())).to.equal(2 + ' years ago');
+			expect(pipe.transform(pastDate.toString())).to.equal(2 + 'j');
 			clock.tick(oneMonth * 12);
-			expect(pipe.transform(pastDate.toString())).to.equal(3 + ' years ago');
+			expect(pipe.transform(pastDate.toString())).to.equal(3 + 'j');
 			clock.tick(oneMonth * 36);
-			expect(pipe.transform(pastDate.toString())).to.equal(6 + ' years ago');
+			expect(pipe.transform(pastDate.toString())).to.equal(6 + 'j');
 		});
 	});
 });
